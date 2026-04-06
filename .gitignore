@@ -1,2 +1,85 @@
+# --- OS junk ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- IDE / Editor ---
+.vs/
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# --- Logs ---
+*.log
+*.tlog
+
+# --- Build folders ---
+build/
+Build/
+bin/
+obj/
+out/
+dist/
+release/
+debug/
+
+# --- CMake ---
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# --- Qt / qmake ---
+*.pro.user
+*.pro.user.*
+*.qmake.stash
+Makefile*
+moc_*.cpp
+qrc_*.cpp
+ui_*.h
+
+# --- Compiled binaries ---
+*.exe
+*.dll
+*.so
+*.dylib
+*.lib
+*.a
+*.o
+*.obj
+
+# --- Archives ---
+*.zip
+*.tar
+*.gz
+*.rar
+*.7z
+
+# --- Python ---
+__pycache__/
+*.pyc
+*.pyo
+
+# --- Node ---
+node_modules/
+npm-debug.log*
+
+# --- Environment / secrets ---
+.env
+.env.*
+*.key
+*.pem
+
+# --- Temporary files ---
+*.tmp
+*.temp
+*.bak
+*.swp
+
+# --- StreamDeck / StreamDock files ---
 .DS_Store
 *.streamDeckPlugin
+*.SDPlugin
