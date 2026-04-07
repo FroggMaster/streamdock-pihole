@@ -1,0 +1,9 @@
+{
+    "name": "ca.froggmaster.pihole",
+    "version": "2.0.0",
+    "type": "module",
+    "main": "index.mjs",
+    "dependencies": {
+        "ws": "^8.18.0"
+    }
+}

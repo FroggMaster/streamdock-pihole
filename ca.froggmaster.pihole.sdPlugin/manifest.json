@@ -1,9 +1,13 @@
 {
 	"SDKVersion": 2,
-	"Author": "John Holbrook",
-	"CodePath": "code.html",
+	"Author": "Frog Master",
+	"CodePathWin": "plugin/index.mjs",
+	"CodePathMac": "plugin/index.mjs",
+	"Nodejs": {
+		"Version": "20"
+	},
 	"PropertyInspectorPath": "pi/index_pi.html",
-	"Description": "Monitor & Control Pi-hole from your Stream Deck",
+	"Description": "Monitor & Control Pi-hole from your Stream Dock",
 	"Name": "Pi-hole",
 	"UUID": "ca.froggmaster.pihole",
 	"Category": "Pi-hole",
