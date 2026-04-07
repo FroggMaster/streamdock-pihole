@@ -80,6 +80,10 @@ npm-debug.log*
 *.swp
 
 # --- StreamDeck / StreamDock files ---
-.DS_Store
 *.streamDeckPlugin
 *.SDPlugin
+*.sdPlugin
+
+# But keep directories with that name
+!*.SDPlugin/
+!*.sdPlugin/

@@ -5,7 +5,7 @@
 	"PropertyInspectorPath": "pi/index_pi.html",
 	"Description": "Monitor & Control Pi-hole from your Stream Deck",
 	"Name": "Pi-hole",
-	"UUID": "us.johnholbrook.pihole",
+	"UUID": "ca.froggmaster.pihole",
 	"Category": "Pi-hole",
 	"CategoryIcon": "img/category-icon",
 	"Icon": "img/toggle",
@@ -36,7 +36,7 @@
 					"Image": "img/temp-disable-grey"
 				}
 			],
-			"UUID": "us.johnholbrook.pihole.temporarily-disable"
+			"UUID": "ca.froggmaster.pihole.temporarily-disable"
 		},
 		{
 			"Icon": "img/toggle-action-image",
@@ -49,7 +49,7 @@
 					"Image": "img/toggle-grey"
 				}
 			],
-			"UUID": "us.johnholbrook.pihole.toggle"
+			"UUID": "ca.froggmaster.pihole.toggle"
 		},
 		{
 			"Icon": "img/disable-action-image",
@@ -62,7 +62,7 @@
 					"Image": "img/disable-grey"
 				}
 			],
-			"UUID": "us.johnholbrook.pihole.disable"
+			"UUID": "ca.froggmaster.pihole.disable"
 		},
 		{
 			"Icon": "img/enable-action-image",
@@ -75,7 +75,7 @@
 					"Image": "img/enable-grey"
 				}
 			],
-			"UUID": "us.johnholbrook.pihole.enable"
+			"UUID": "ca.froggmaster.pihole.enable"
 		}
 	]
 }

@@ -9,13 +9,7 @@ function send(data){
 
 // write to the log
 function log(message){
-    alert("logging!")
-    send({
-        "event": "logMessage",
-        "payload": {
-            "message": message
-        }
-    });
+    console.log(message);
 }
 
 // called by the stream deck software when the PI is inizialized
@@ -26,10 +20,11 @@ function connectElgatoStreamDeckSocket(inPort, inPropertyInspectorUUID, inRegist
             "event" : inRegisterEvent,
             "uuid" : inPropertyInspectorUUID
         });
+        log(`[PI] websocket connected, action=${action}`);
     }
 
     websocket.onmessage = function(evt){
-        jsonObj = json.parse(evt.data);
+        let jsonObj = JSON.parse(evt.data);
         let event = jsonObj.event;
     }
 
@@ -38,7 +33,7 @@ function connectElgatoStreamDeckSocket(inPort, inPropertyInspectorUUID, inRegist
     context = inPropertyInspectorUUID;
 
     // hide the "disable time" input if necessary
-    if (action != "us.johnholbrook.pihole.temporarily-disable"){
+    if (action != "ca.froggmaster.pihole.temporarily-disable"){
         document.querySelector("#disable-time").style.display = "none";
     }
 
@@ -48,7 +43,7 @@ function connectElgatoStreamDeckSocket(inPort, inPropertyInspectorUUID, inRegist
     document.querySelector("#ph-addr-input").value = settings.ph_addr ? settings.ph_addr : "";
     document.querySelector("#stat-input").value = settings.stat ? settings.stat : "none";
     document.querySelector("#protocol-input").value = settings.protocol ? settings.protocol : "http";
-    if (action == "us.johnholbrook.pihole.temporarily-disable"){
+    if (action == "ca.froggmaster.pihole.temporarily-disable"){
         document.querySelector("#disable-time-input").value = settings.disable_time ? settings.disable_time : "";
     }
 }
@@ -63,13 +58,8 @@ function sendToPlugin(payload){
 }
 
 function updateSettings(){
-    // send({
-    //     "event": "logMessage",
-    //     "payload": {
-    //         "message": "Hello World!"
-    //     }
-    // });
-    if (action == "us.johnholbrook.pihole.temporarily-disable"){
+    log(`[PI] updateSettings called for action=${action}`);
+    if (action == "ca.froggmaster.pihole.temporarily-disable"){
         let disable_time = document.querySelector("#disable-time-input").value;
         let key = document.querySelector("#ph-key-input").value;
         let addr = document.querySelector("#ph-addr-input").value;
