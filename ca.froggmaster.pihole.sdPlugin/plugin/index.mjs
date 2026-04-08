@@ -1,5 +1,5 @@
 import WebSocket from 'ws';
-import { appendFileSync, mkdirSync } from 'fs';
+import { appendFileSync, mkdirSync, readdirSync, statSync, unlinkSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { request as httpReq } from 'http';
@@ -8,10 +8,27 @@ import { request as httpsReq } from 'https';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const logDir = join(__dirname, '..', 'log');
 mkdirSync(logDir, { recursive: true });
+cleanOldLogs(7);
 
 let websocket = null;
 const instances = {};
 const pendingAuth = {}; // deduplicates simultaneous auth calls to the same server
+
+// delete log files older than `maxAgeDays` days
+function cleanOldLogs(maxAgeDays = 7) {
+    const cutoff = Date.now() - maxAgeDays * 24 * 60 * 60 * 1000;
+    try {
+        for (const file of readdirSync(logDir)) {
+            if (!file.endsWith('.log')) continue;
+            const filePath = join(logDir, file);
+            if (statSync(filePath).mtimeMs < cutoff) {
+                unlinkSync(filePath);
+            }
+        }
+    } catch (err) {
+        // non-fatal: log cleanup failure shouldn't crash the plugin
+    }
+}
 
 // write to the log
 function log(message) {
